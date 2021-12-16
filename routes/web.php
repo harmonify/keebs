@@ -23,12 +23,20 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
-    Route::view('forms', 'forms')->name('forms');
-    Route::view('cards', 'cards')->name('cards');
-    Route::view('charts', 'charts')->name('charts');
-    Route::view('buttons', 'buttons')->name('buttons');
-    Route::view('modals', 'modals')->name('modals');
-    Route::view('tables', 'tables')->name('tables');
-    Route::view('calendar', 'calendar')->name('calendar');
+    // Templates
+    Route::view('dashboard.__templates.forms', 'forms')->name('forms');
+    Route::view('dashboard.__templates.cards', 'cards')->name('cards');
+    Route::view('dashboard.__templates.charts', 'charts')->name('charts');
+    Route::view('dashboard.__templates.buttons', 'buttons')->name('buttons');
+    Route::view('dashboard.__templates.modals', 'modals')->name('modals');
+    Route::view('dashboard.__templates.tables', 'tables')->name('tables');
+    Route::view('dashboard.__templates.calendar', 'calendar')->name('calendar');
+    Route::view('dashboard.__templates.pagination', 'pagination')->name('pagination');
+
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+
+        Route::get('/', function () {
+            return view('dashboard.index');
+        })->name('index');
+    });
 });
