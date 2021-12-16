@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@example.com',
                 'password' => bcrypt('admin'),
-                'profile_photo_path' => '/profile-photos/default.png',
             ]);
         }
         User::factory(10)->create();
