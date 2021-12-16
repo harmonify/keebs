@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,19 +25,17 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Templates
-    Route::view('dashboard.__templates.forms', 'forms')->name('forms');
-    Route::view('dashboard.__templates.cards', 'cards')->name('cards');
-    Route::view('dashboard.__templates.charts', 'charts')->name('charts');
-    Route::view('dashboard.__templates.buttons', 'buttons')->name('buttons');
-    Route::view('dashboard.__templates.modals', 'modals')->name('modals');
-    Route::view('dashboard.__templates.tables', 'tables')->name('tables');
-    Route::view('dashboard.__templates.calendar', 'calendar')->name('calendar');
-    Route::view('dashboard.__templates.pagination', 'pagination')->name('pagination');
+    Route::view('forms', 'dashboard.__templates.forms')->name('forms');
+    Route::view('cards', 'dashboard.__templates.cards')->name('cards');
+    Route::view('charts', 'dashboard.__templates.charts')->name('charts');
+    Route::view('buttons', 'dashboard.__templates.buttons')->name('buttons');
+    Route::view('modals', 'dashboard.__templates.modals')->name('modals');
+    Route::view('tables', 'dashboard.__templates.tables')->name('tables');
+    Route::view('calendar', 'dashboard.__templates.calendar')->name('calendar');
+    Route::view('pagination', 'dashboard.__templates.pagination')->name('pagination');
 
+    // Dashboard
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
-
-        Route::get('/', function () {
-            return view('dashboard.index');
-        })->name('index');
+        Route::get('/', [DashboardController::class, 'index'])->name('index');
     });
 });
