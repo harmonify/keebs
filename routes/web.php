@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryResourceController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
-
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Templates
@@ -37,5 +37,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Dashboard
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+        Route::resource('categories', CategoryResourceController::class)->names('categories');
     });
 });

@@ -26,14 +26,4 @@ class Category extends Model
     {
         return Carbon::parse($value)->format('d/m/Y');
     }
-
-    public function setCreatedAtAttribute($value)
-    {
-        $this->attributes['created_at'] = Carbon::createFromFormat('d/m/Y', $value);
-    }
-
-    public function setUpdatedAtAttribute($value)
-    {
-        $this->attributes['updated_at'] = Carbon::createFromFormat('d/m/Y', $value);
-    }
 }

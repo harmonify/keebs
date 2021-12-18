@@ -69,7 +69,9 @@ class CategoryResourceController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('dashboard.categories.edit');
+        return view('dashboard.categories.edit', [
+            'category' => $category
+        ]);
     }
 
     /**

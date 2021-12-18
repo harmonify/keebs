@@ -18,3 +18,18 @@
         </x-shared.table>
     </div>
 </x-app-layout>
+
+@if ($errors->any())
+    <div class="bg-red-100 p-3 fixed bottom-2 right-10 rounded" onclick="this.style.display = 'none'">
+        <div class="w-full flex justify-end">
+            <button>
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+        <ul class="list-disc list-inside">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
