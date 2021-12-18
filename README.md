@@ -14,7 +14,7 @@ This project is bootstraped with [Larawind - Laravel 8.0+ Jetstream and Tailwind
 
 ```bash
 # Clone the repository from GitHub and open the directory:
-git clone https://github.com/miten5/larawind.git
+git clone https://github.com/harmonify/keebs.git
 
 # cd into your project directory
 cd larawind
