@@ -3,12 +3,12 @@
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Categories
         </h2>
-        
+
         <div>
-            <x-shared.icon tag="a" href="{{ route('dashboard.categories.create') }}" class="float-left gap-x-2 mb-6">
+            <x-shared.button tag="a" href="{{ route('dashboard.categories.create') }}" class="float-left gap-x-2 mb-6">
                 <i class="bi bi-plus-lg"></i>
                 Create a New Category
-            </x-shared.icon>
+            </x-shared.button>
         </div>
 
         {{-- Tables --}}

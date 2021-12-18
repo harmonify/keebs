@@ -21,16 +21,16 @@
                             <td class="px-4 py-3">
                                 <div class="flex justify-center items-center space-x-4 text-sm">
                                     @if (isset($actions['show']))
-                                        <x-shared.icon tag="a" href="{{ route($actions['show'], $element['id']) }}"
+                                        <x-shared.button tag="a" href="{{ route($actions['show'], $element['id']) }}"
                                             aria-label="Show">
                                             <i class="bi bi-eye"></i>
-                                        </x-shared.icon>
+                                        </x-shared.button>
                                     @endif
                                     @if (isset($actions['edit']))
-                                        <x-shared.icon tag="a" href="{{ route($actions['edit'], $element['id']) }}"
+                                        <x-shared.button tag="a" href="{{ route($actions['edit'], $element['id']) }}"
                                             aria-label="Edit">
                                             <i class="bi bi-pencil"></i>
-                                        </x-shared.icon>
+                                        </x-shared.button>
                                     @endif
                                     @if (isset($actions['delete']))
                                         <form action="{{ route($actions['delete'], $element['id']) }}"
@@ -38,10 +38,10 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <x-shared.icon tag="button" type="submit" onclick="return confirm('Are you sure to delete this?')"
+                                            <x-shared.button tag="button" type="submit" onclick="return confirm('Are you sure to delete this?')"
                                                 aria-label="Delete">
                                                 <i class="bi bi-trash"></i>
-                                            </x-shared.icon>
+                                            </x-shared.button>
                                         </form>
                                     @endif
                                 </div>
