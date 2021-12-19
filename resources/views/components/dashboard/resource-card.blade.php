@@ -1,7 +1,7 @@
 @props(['title', 'icon', 'body'])
 
 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-    {{-- to extend class attribute with slot attribute --}}
+    {{-- to extend class attribute with slot name="icon" attribute --}}
     <div {{ $icon->attributes->class('px-4 py-3 mr-4 rounded-full') }}>
         {{ $icon }}
     </div>
