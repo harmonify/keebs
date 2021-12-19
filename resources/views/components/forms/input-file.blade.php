@@ -10,7 +10,7 @@
 
     <input id="{{ $name }}" name="{{ $name }}" type="file" class="sr-only" {{ $attributes }} />
 
-    <img id="{{ $name }}-preview" class="block rounded" src="{{ asset(old($name, $old)) }}" alt="" width="500" />
+    <img id="{{ $name }}-preview" class="block rounded" src="{{ asset($old) }}" alt="" width="500" />
 
     <x-forms.error name="{{ $name }}"></x-forms.error>
 </label>
