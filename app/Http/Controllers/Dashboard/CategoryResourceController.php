@@ -41,7 +41,7 @@ class CategoryResourceController extends Controller
     {
         $validated = $request->validated();
 
-        $category = Category::create($validated);
+        Category::create($validated);
 
         return redirect()
             ->route('dashboard.categories.index')
@@ -57,7 +57,7 @@ class CategoryResourceController extends Controller
     public function show(Category $category)
     {
         return view('dashboard.categories.show', [
-            'category' => Category::all()
+            'category' => $category
         ]);
     }
 
