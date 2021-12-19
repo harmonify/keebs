@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\CategoryResourceController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\ProductResourceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,5 +40,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
 
         Route::resource('categories', CategoryResourceController::class)->names('categories');
+
+        Route::resource('products', ProductResourceController::class)->names('products');
     });
 });

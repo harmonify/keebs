@@ -11,5 +11,9 @@
             <i class="bi bi-tags-fill mx-1"></i>
             <span class="ml-3">Categories</span>
         </x-dashboard.menu-link>
+        <x-dashboard.menu-link route="dashboard.products.index">
+            <i class="bi bi-cart4 mx-1"></i>
+            <span class="ml-3">Products</span>
+        </x-dashboard.menu-link>
     </ul>
 </div>
