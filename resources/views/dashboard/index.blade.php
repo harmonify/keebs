@@ -12,6 +12,11 @@
                 </x-slot>
             </x-dashboard.resource-card>
 
+            <x-dashboard.resource-card title="Total Products" :body="$productsCount">
+                <x-slot name="icon" class="text-blue-500 bg-blue-100 dark:text-blue-100 dark:bg-blue-500">
+                    <i class="bi bi-cart4"></i>
+                </x-slot>
+            </x-dashboard.resource-card>
         </div>
     </div>
 </x-app-layout>
