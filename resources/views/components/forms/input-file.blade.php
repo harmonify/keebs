@@ -25,7 +25,7 @@
             const file = this.files[0];
 
             if (file) {
-                selected.innerHTML = file.name;
+                selected.textContent = file.name;
                 const reader = new FileReader();
 
                 reader.addEventListener('load', function() {
