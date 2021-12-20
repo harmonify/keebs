@@ -1,4 +1,4 @@
-@props(['image'])
+@props(['image' => '', 'body', 'footer' => ''])
 
 {{-- Card --}}
 <div class="flex flex-col max-w-3xl rounded shadow bg-white dark:bg-gray-800">
@@ -10,7 +10,10 @@
     {{-- Card Body --}}
     <div class="w-full p-6 text-center">
         <div class="grid grid-cols-1 md:grid-cols-2">
-            {{ $slot }}
+            {{ $body }}
         </div>
+        <x-dashboard.card.action>
+            {{ $footer }}
+        </x-dashboard.card.action>
     </div>
 </div>

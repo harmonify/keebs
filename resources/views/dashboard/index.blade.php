@@ -18,5 +18,5 @@
                 </x-slot>
             </x-dashboard.resource-card>
         </div>
-    </div>
 </x-app-layout>
+

@@ -1,11 +1,11 @@
 <x-app-layout title="Dashboard | Products">
-    <div class="container grid p-6 mx-auto">
-        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Product
-        </h2>
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Product
+    </h2>
 
-        {{-- Card --}}
-        <x-dashboard.card :image="$product->image_url">
+    {{-- Card --}}
+    <x-dashboard.card :image="$product->image_url">
+        <x-slot name="body">
             <x-dashboard.card.item>
                 <x-slot name="title">
                     {{ $product->name }}
@@ -14,7 +14,6 @@
                     {{ $product->description }}
                 </x-slot>
             </x-dashboard.card.item>
-
             <x-dashboard.card.item>
                 <x-slot name="title">
                     Category
@@ -23,8 +22,6 @@
                     {{ $product->category->name }}
                 </x-slot>
             </x-dashboard.card.item>
-
-
             <x-dashboard.card.item>
                 <x-slot name="title">
                     Stock
@@ -33,7 +30,6 @@
                     {{ $product->stock }}
                 </x-slot>
             </x-dashboard.card.item>
-
             <x-dashboard.card.item>
                 <x-slot name="title">
                     Price
@@ -42,7 +38,6 @@
                     {{ $product->price }}
                 </x-slot>
             </x-dashboard.card.item>
-
             <x-dashboard.card.item>
                 <x-slot name="title">
                     Created At
@@ -51,7 +46,6 @@
                     {{ $product->created_at }}
                 </x-slot>
             </x-dashboard.card.item>
-
             <x-dashboard.card.item>
                 <x-slot name="title">
                     Updated At
@@ -60,27 +54,22 @@
                     {{ $product->updated_at }}
                 </x-slot>
             </x-dashboard.card.item>
+        </x-slot>
 
-            <x-dashboard.card.item>
-                <x-slot name="body">
-                    <div class="flex flex-wrap gap-x-2 justify-center items-center">
-                        <x-shared.button tag="a" href="{{ route('dashboard.products.edit', $product) }}"
-                            aria-label="Edit">
-                            Edit
-                            <i class="bi bi-pencil ml-2"></i>
-                        </x-shared.button>
-                        <form action="{{ route('dashboard.products.destroy', $product) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <x-shared.button tag="button" type="submit"
-                                onclick="return confirm('Are you sure to delete this?')" aria-label="Delete">
-                                Delete
-                                <i class="bi bi-trash ml-2"></i>
-                            </x-shared.button>
-                        </form>
-                    </div>
-                </x-slot>
-            </x-dashboard.card.item>
-        </x-dashboard.card>
-    </div>
+        <x-slot name="footer">
+            <x-shared.button tag="a" href="{{ route('dashboard.products.edit', $product) }}" aria-label="Edit">
+                Edit
+                <i class="bi bi-pencil ml-2"></i>
+            </x-shared.button>
+            <form action="{{ route('dashboard.products.destroy', $product) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <x-shared.button tag="button" type="submit" onclick="return confirm('Are you sure to delete this?')"
+                    aria-label="Delete">
+                    Delete
+                    <i class="bi bi-trash ml-2"></i>
+                </x-shared.button>
+            </form>
+        </x-slot>
+    </x-dashboard.card>
 </x-app-layout>

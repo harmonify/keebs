@@ -10,13 +10,14 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{asset('js/init-alpine.js')}}" defer></script>
+    <script src="{{ asset('js/init-alpine.js') }}" defer></script>
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
@@ -45,7 +46,9 @@
         <div class="flex flex-col flex-1 w-full">
             @include('dashboard.layouts.navigation-dropdown')
             <main class="h-full overflow-y-auto">
-                {{ $slot }}
+                <div class="container grid p-6 mx-auto">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
 
