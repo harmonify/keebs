@@ -47,7 +47,7 @@ class ProductResourceController extends Controller
         $validated = $request->validated();
 
         Product::create(array_merge($validated, [
-            'image' => ResourceUtilities::storeImage($request->image),
+            'image_path' => ResourceUtilities::storeImage($request->image_path, 'products'),
         ]));
 
         return redirect()->route('dashboard.products.index')->with('success', 'Product created successfully');
@@ -92,7 +92,7 @@ class ProductResourceController extends Controller
         $validated = $request->validated();
 
         $product->update(array_merge($validated, [
-            'image' => ResourceUtilities::updateImage($product->image, $request->image),
+            'image_path' => ResourceUtilities::updateImage($product->image_path, $request->image_path, 'products'),
         ]));
 
         return redirect()->route('dashboard.products.index')->with('success', 'Product updated successfully');
@@ -106,7 +106,7 @@ class ProductResourceController extends Controller
      */
     public function destroy(Product $product)
     {
-        ResourceUtilities::deleteImage($product->image);
+        ResourceUtilities::deleteImage($product->image_path);
 
         $product->delete();
 

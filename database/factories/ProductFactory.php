@@ -20,7 +20,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->text(),
             'stock' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->randomNumber(7, true),
-            'image' => 'images/default_product_img.jpg',
+            'image_path' => 'products/placeholder.jpg',
         ];
     }
 }

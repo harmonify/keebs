@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ResourceUtilities
 {
-    private static $defaultImage = 'images/placeholder.jpg';
+    private static $defaultImage = 'products/placeholder.jpg';
 
     /**
      * Store the image on the specified path.
@@ -22,7 +22,7 @@ class ResourceUtilities
             return self::$defaultImage;
         }
 
-        return $image->store($path ? "images/{$path}" : "images", $disk);
+        return $image->store($path, $disk);
     }
 
     /**
@@ -40,9 +40,9 @@ class ResourceUtilities
             return $oldImage;
         }
 
-        self::deleteImage($oldImage, $disk);
+        static::deleteImage($oldImage, $disk);
 
-        return $image->store($path ? "images/{$path}" : "images", $disk);
+        return static::storeImage($image, $path, $disk);
     }
 
     /**

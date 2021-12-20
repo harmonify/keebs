@@ -1,5 +1,5 @@
 <x-app-layout title="Dashboard | Products">
-    <div class="container grid px-6 mx-auto">
+    <div class="container grid p-6 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Edit Product
         </h2>
@@ -14,7 +14,7 @@
                 <x-forms.input type="number" name="stock" :old="$product->stock" required></x-forms.input>
                 <x-forms.input type="number" name="price" :old="$product->price" required></x-forms.input>
                 <x-forms.select name="category_id" label="category" :items="$categories" :old="$product->category_id" required></x-forms.select>
-                <x-forms.input-file name="image" :old="$product->image"></x-forms.input-file>
+                <x-forms.input-file name="image_path" label="image" :old="$product->image_url"></x-forms.input-file>
 
                 <x-forms.submit></x-forms.submit>
             </form>

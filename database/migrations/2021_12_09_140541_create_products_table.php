@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('stock');
             $table->string('price');
-            $table->string('image');
+            $table->text('image_path')->nullable()->default('products/placeholder.jpg');
             $table->timestamps();
         });
     }

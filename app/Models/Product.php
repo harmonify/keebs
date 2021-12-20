@@ -17,20 +17,14 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getImageAttribute($value)
+    /*
+     * Get the product image url
+     * 
+     * @return string
+     */
+    public function getImageUrlAttribute()
     {
-        return asset('storage/' . $value);
-    }
-
-    public function setImageAttribute($value)
-    {
-        // strip the url and take only the path
-        $path = ltrim($value, url('/') . 'storage/');
-
-        // check if the path is not empty
-        if (!empty($path)) {
-            $this->attributes['image'] = $path;
-        }
+        return asset('storage/' . $this->image_path);
     }
 
     public function getCreatedAtAttribute($value)

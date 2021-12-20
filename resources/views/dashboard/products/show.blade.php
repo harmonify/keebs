@@ -1,12 +1,11 @@
 <x-app-layout title="Dashboard | Products">
-    {{ debug($product) }}
-    <div class="container grid px-6 mx-auto">
+    <div class="container grid p-6 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Product
         </h2>
 
         {{-- Card --}}
-        <x-dashboard.card :image="asset($product->image)">
+        <x-dashboard.card :image="$product->image_url">
             <x-dashboard.card.item>
                 <x-slot name="title">
                     {{ $product->name }}
